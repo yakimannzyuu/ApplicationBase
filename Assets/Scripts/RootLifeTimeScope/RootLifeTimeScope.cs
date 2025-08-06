@@ -1,6 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
+using Manager;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using VContainer;
@@ -21,6 +22,9 @@ namespace RootLifeTimeScope
         {
             builder.Register<RootPresenter>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
             builder.RegisterEntryPoint<EntryPoint>();
+
+            builder.Register<SoundManager>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
+            builder.Register<SceneLoader>(Lifetime.Singleton).AsSelf().AsImplementedInterfaces();
         }
 
         public void Init()
