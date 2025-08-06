@@ -9,7 +9,7 @@ namespace TitleScene
     /// <summary>
     /// TitleSceneのPresenter
     /// </summary>
-    public class TitleScenePresenter : MonoBehaviour, IPresenter
+    public class TitleScenePresenter : MonoBehaviour, IScenePresenter
     {
         private readonly TitleSceneModel _model;
         private readonly TitleSceneView _view;
@@ -32,7 +32,7 @@ namespace TitleScene
             switch (result)
             {
                 case WizardAsync.WizardAsyncState.Primary:
-                    await _sceneLoader.LoadScene<IScenePresenter>(SceneType.GameScene, LoadSceneMode.Single);
+                    await _sceneLoader.LoadScene<IScenePresenter>(SceneType.MainGameScene, LoadSceneMode.Single);
                     break;
                 default:
                     Debug.LogWarning($"TitleScenePresenter: Unexpected state received: {result}");
