@@ -13,11 +13,7 @@ namespace RootLifeTimeScope
     {
         public async UniTask StartAsync()
         {
-            Debug.Log("RootLifeTimeScopePresenter started.");
             await UniTask.CompletedTask;
-
-            await UniTask.Delay(1000); // Simulate some initialization delay
-            Debug.Log("RootLifeTimeScopePresenter initialization complete.");
         }
 
         public void Test()
