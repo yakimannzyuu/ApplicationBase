@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using Manager.VContainer;
 using UnityEngine;
 
 namespace Manager
@@ -11,11 +12,6 @@ namespace Manager
         public UniTask<T> LoadScene<T>(SceneType sceneType, LoadSceneMode loadSceneMode) where T : IScenePresenter;
     }
 
-    public interface IScenePresenter
-    {
-
-    }
-
     public class SceneLoader : ISceneLoader
     {
         public async UniTask<T> LoadScene<T>(SceneType sceneType, LoadSceneMode loadSceneMode) where T : IScenePresenter
@@ -25,6 +21,8 @@ namespace Manager
                 UnityEngine.SceneManagement.LoadSceneMode.Single :
                 UnityEngine.SceneManagement.LoadSceneMode.Additive;
             await UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneType.ToString(), mode);
+
+
             return default;
         }
     }
@@ -32,7 +30,7 @@ namespace Manager
     public enum SceneType
     {
         TitleScene,
-        GameScene,
+        MainGameScene,
     }
 
     public enum LoadSceneMode

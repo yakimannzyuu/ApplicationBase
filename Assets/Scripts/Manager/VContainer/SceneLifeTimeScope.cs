@@ -10,7 +10,7 @@ namespace Manager.VContainer
     /// シーン用LifeTimeScopeのベースクラス
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class SceneLifeTimeScope<T> : LifetimeScope where T : IPresenter
+    public abstract class SceneLifeTimeScope<T> : LifetimeScope where T : IScenePresenter
     {
         // MonoBehaviour
         private void Start()
@@ -47,7 +47,7 @@ namespace Manager.VContainer
         }
     }
 
-    public interface IPresenter
+    public interface IScenePresenter
     {
         public UniTask StartAsync(CancellationToken cancellationToken);
     }
